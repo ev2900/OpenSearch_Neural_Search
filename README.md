@@ -1,2 +1,2 @@
-# OpenSearch_Neural_Search
-Working in Progress - 
+# OpenSearch Neural Search
+ 
