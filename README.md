@@ -2,7 +2,7 @@
  
 ## Example
 
- 1. Allow tasks and models to run data nodes
+ 1. By default machine learning (ML) tasks and models can only run on specific ML nodes. Running the API command below we allow tasks and models to also run on data nodes
 
 ```
 PUT /_cluster/settings
@@ -28,6 +28,20 @@ Note down the task id from the API response
 
 3. Get the model id
 
+```
+GET /_plugins/_ml/tasks/{task_id}
+```
 
+4. Load the model
 
-4. 
+```
+POST /_plugins/_ml/models/{model_id}/_load
+```
+
+You can check the status of the loaded model
+
+```
+GET /_plugins/_ml/tasks/{task_id}
+```
+
+5. 
