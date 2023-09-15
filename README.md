@@ -1,6 +1,6 @@
 # OpenSearch Neural Search
  
-## Example
+## Example on Amazon OpenSearch Service
 
  1. By default machine learning (ML) tasks and models only run on specific ML nodes. Running the API command below allows ML tasks and models to run on data nodes
 
