@@ -2,7 +2,7 @@
  
 ## Example
 
- 1. By default machine learning (ML) tasks and models can only run on specific ML nodes. Running the API command below we allow tasks and models to also run on data nodes
+ 1. By default machine learning (ML) tasks and models only run on specific ML nodes. Running the API command below allows ML tasks and models to run on data nodes
 
 ```
 PUT /_cluster/settings
@@ -24,24 +24,31 @@ POST /_plugins/_ml/models/_upload
 }
 ```
 
-Note down the task id from the API response
+Note down the task id from the API response. This will be used in subsequent steps
 
 3. Get the model id
+
+Using the task id from the previous step, retrieve the model id of the BERT model that was uploaded in the previous step 
 
 ```
 GET /_plugins/_ml/tasks/{task_id}
 ```
+Note down the model id from the API response. This will be used in subsequent steps
 
-4. Load the model
+4. Load the model to memory for inference 
 
 ```
 POST /_plugins/_ml/models/{model_id}/_load
 ```
 
-You can check the status of the loaded model
+Loading the model reads the model’s chunks from the model index and then creates an instance of the model to load into memory
+
+You can check the status of loading the model by passing the task id from the load model API to the API call below. The larger the model the longer it will takes to load it to memory
 
 ```
 GET /_plugins/_ml/tasks/{task_id}
 ```
 
-5. 
+5. Load sample data
+
+6. 
