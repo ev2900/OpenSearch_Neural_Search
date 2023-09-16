@@ -51,4 +51,10 @@ GET /_plugins/_ml/tasks/{task_id}
 
 5. Load sample data
 
+The sample data for this example is the opensource Amazon product question answer data set. Copy and past the content of the [load_sample_data.json](https://github.com/ev2900/OpenSearch_Neural_Search/blob/main/load_sample_data.json) to the dev tools console of the OpenSearch dashboard. Run the API call. 
+
+This will create an index *nlp_pqa* with a field *question*. We will convert the text in the question field into vector representations - using the BERT model we loaded - in the next steps 
+
 6. 
+
+7. 
