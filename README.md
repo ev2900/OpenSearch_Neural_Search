@@ -182,4 +182,4 @@ Copy, paste the following into the Query 2 box
 
 Click the search button and compare the results
 
-
+<img width="1000" alt="cat_indicies_1" src="https://github.com/ev2900/OpenSearch_Neural_Search/blob/main/search_relevancy_1.png">
