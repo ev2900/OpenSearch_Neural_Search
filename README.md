@@ -55,6 +55,8 @@ The sample data for this example is the opensource Amazon product question answe
 
 This will create an index *nlp_pqa* with a field *question*. We will convert the text in the question field into vector representations - using the BERT model we loaded - in the next steps 
 
+<img width="1000" alt="cat_indicies_1" src="https://github.com/ev2900/OpenSearch_Neural_Search/blob/main/bulk_load.png">
+
 6. 
 
 7. 
