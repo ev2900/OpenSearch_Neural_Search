@@ -121,7 +121,7 @@ The sample data for this example is the opensource Amazon product question answe
 
 This will load the index *nlp_pqa* with a field *question* and the *question_vector* field will automatically be created via. the pipeline we created in previous steps. 
 
-<img width="1000" alt="cat_indicies_1" src="https://github.com/ev2900/OpenSearch_Neural_Search/blob/main/bulk_load.png">
+<img width="1000" alt="bulk_load" src="https://github.com/ev2900/OpenSearch_Neural_Search/blob/main/README/bulk_load.png">
 
 8. Search data with neural search
 
@@ -182,4 +182,4 @@ Copy, paste the following into the Query 2 box
 
 Click the search button and compare the results
 
-<img width="1000" alt="cat_indicies_1" src="https://github.com/ev2900/OpenSearch_Neural_Search/blob/main/search_relevancy_1.png">
+<img width="1000" alt="search_relevancy" src="https://github.com/ev2900/OpenSearch_Neural_Search/blob/main/README/search_relevancy_1.png">
