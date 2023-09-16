@@ -24,7 +24,7 @@ POST /_plugins/_ml/models/_upload
 }
 ```
 
-Note down the task id from the API response. This will be used in subsequent steps. After uploading the model you will notice that a index *.plugins-ml-model* and *.plugins-ml-task* now exist.
+Note down the task id from the API response. This will be used in subsequent steps. After uploading the model you will notice that indexes *.plugins-ml-model* and *.plugins-ml-task* now exist.
 
 3. Get the model id
 
