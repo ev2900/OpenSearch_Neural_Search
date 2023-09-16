@@ -1,6 +1,6 @@
 # OpenSearch Neural Search
  
-## Example on Amazon OpenSearch Service
+## Amazon OpenSearch Service Example
 
  1. By default machine learning (ML) tasks and models only run on specific ML nodes. Running the API command below allows ML tasks and models to run on data nodes
 
@@ -43,7 +43,7 @@ POST /_plugins/_ml/models/{model_id}/_load
 
 Loading the model reads the model’s chunks from the model index and then creates an instance of the model to load into memory
 
-You can check the status of loading the model by passing the task id from the load model API to the API call below. The larger the model the longer it will takes to load it to memory
+You can check the status of loading the model by passing the task id from the load model API to the API call below. The larger the model the longer it will take to load it to memory
 
 ```
 GET /_plugins/_ml/tasks/{task_id}
@@ -72,7 +72,7 @@ PUT _ingest/pipeline/nlp-pipeline
 
 6. Create an index that uses the pipeline to convert the *question* field into embeddings using the pipeline
 
-The *question_vector* field in the index will be generated via. the pipeline we created in the previous step. The pipeline will use the BERT model to conver the *question* feild into embeddings ie. vector representations of the question text
+The *question_vector* field in the index will be generated via. the pipeline we created in the previous step. The pipeline will use the BERT model to convert the *question* field into embeddings ie. vector representations of the question text
 
 ```
 PUT /nlp_pqa
@@ -117,8 +117,8 @@ PUT /nlp_pqa
 
 7. Load sample data
 
-The sample data for this example is the opensource Amazon product question answer data set. Copy and past the content of the [load_sample_data.json](https://github.com/ev2900/OpenSearch_Neural_Search/blob/main/load_sample_data.json) to the dev tools console of the OpenSearch dashboard. Run the API call. 
+The sample data for this example is the opensource Amazon product question answer data set. Copy and paste the content of the [load_sample_data.json](https://github.com/ev2900/OpenSearch_Neural_Search/blob/main/load_sample_data.json) to the dev tools console of the OpenSearch dashboard. Run the API call. 
 
-This will create an index *nlp_pqa* with a field *question*. We will convert the text in the question field into vector representations - using the BERT model we loaded - in the next steps 
+This will load the index *nlp_pqa* with a field *question* and the *question_vector* field will automatically be created via. the pipeline we created in previous steps. 
 
 <img width="1000" alt="cat_indicies_1" src="https://github.com/ev2900/OpenSearch_Neural_Search/blob/main/bulk_load.png">
