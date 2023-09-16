@@ -74,6 +74,7 @@ PUT _ingest/pipeline/nlp-pipeline
 
 The *question_vector* field in the index will be generated via. the pipeline we created in the previous step. The pipeline will use the BERT model to conver the *question* feild into embeddings ie. vector representations of the question text
 
+```
 PUT /nlp_pqa
 {
   "settings": {
@@ -112,6 +113,7 @@ PUT /nlp_pqa
       }
   }
 }
+```
 
 7. Load sample data
 
