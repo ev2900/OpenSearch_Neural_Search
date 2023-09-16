@@ -148,4 +148,38 @@ GET /nlp_pqa/_search
 
 OpenSearch offers a search relevancy feature that can help compare the result of two different searches. Navigate to the search relevancy section in the OpenSearch dashboard.
 
+Copy, paste the following into the Query 1 box
+
+```
+{
+  "_source": [ "question" ],
+  "size": 30,
+  "query": {
+    "neural": {
+      "question_vector": {
+        "query_text": "does this work with xbox?",
+        "model_id": "J5zPnooBXKl1aQtm2DqI",
+        "k": 30
+      }
+    }
+  }
+}
+```
+
+Copy, paste the following into the Query 2 box
+
+```
+{
+  "_source": [ "question" ],
+  "size": 30,
+  "query": {
+      "match": {
+          "question":"does this work with xbox?"
+      }
+  }
+}
+```
+
+Click the search button and compare the results
+
 
