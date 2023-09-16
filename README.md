@@ -1,6 +1,6 @@
 # OpenSearch Neural Search
  
-## Amazon OpenSearch Service Example
+## Example of Neural Search on Amazon OpenSearch Service
 
  1. By default machine learning (ML) tasks and models only run on specific ML nodes. Running the API command below allows ML tasks and models to run on data nodes
 
@@ -122,3 +122,30 @@ The sample data for this example is the opensource Amazon product question answe
 This will load the index *nlp_pqa* with a field *question* and the *question_vector* field will automatically be created via. the pipeline we created in previous steps. 
 
 <img width="1000" alt="cat_indicies_1" src="https://github.com/ev2900/OpenSearch_Neural_Search/blob/main/bulk_load.png">
+
+8. Search data with neural search
+
+We can search the question vector field using the API call below. We use the model to convert our *query_text* into a vector representation
+
+```
+GET /nlp_pqa/_search
+{
+  "_source": [ "question" ],
+  "size": 30,
+  "query": {
+    "neural": {
+      "question_vector": {
+        "query_text": "does this work with xbox?",
+        "model_id": "{model_id}",
+        "k": 30
+      }
+    }
+  }
+}
+```
+
+9. *Optional* Compare the results of a neural search and a key word based search
+
+OpenSearch offers a search relevancy feature that can help compare the result of two different searches. Navigate to the search relevancy section in the OpenSearch dashboard.
+
+
