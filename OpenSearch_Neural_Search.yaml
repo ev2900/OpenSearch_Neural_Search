@@ -15,7 +15,7 @@ Resources:
         DedicatedMasterEnabled: false
         InstanceCount: '1'
         ZoneAwarenessEnabled: false
-        InstanceType: 'r6g.large.search'
+        InstanceType: 'r5.2xlarge.search'
       EBSOptions:
         EBSEnabled: true
         VolumeSize: '100'
