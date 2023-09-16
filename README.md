@@ -6,7 +6,7 @@
 
 If you do not already have an OpenSearch domain to run the example on you can click the button below to deploy a domain
 
-[![Launch CloudFormation Stack](https://sharkech-public.s3.amazonaws.com/misc-public/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=open-search-kNN&templateURL=https://sharkech-public.s3.amazonaws.com/misc-public/OpenSearch_Neural_Search.yaml)
+[![Launch CloudFormation Stack](https://sharkech-public.s3.amazonaws.com/misc-public/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=neural-search&templateURL=https://sharkech-public.s3.amazonaws.com/misc-public/OpenSearch_Neural_Search.yaml)
 
 The login information for the OpenSearch dashboard is provided in the CloudFormation outputs
    
