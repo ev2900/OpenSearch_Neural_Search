@@ -49,14 +49,74 @@ You can check the status of loading the model by passing the task id from the lo
 GET /_plugins/_ml/tasks/{task_id}
 ```
 
-5. Load sample data
+5. Create a pipeline
+
+OpenSearch pipelines are used to transform data before it is indexed. We can create a pipeline that uses the BERT model to transform text to embeddings (vector representation of the text) on ingestion
+
+```
+PUT _ingest/pipeline/nlp-pipeline
+{
+  "description": "An example neural search pipeline",
+  "processors" : [
+    {
+      "text_embedding": {
+        "model_id": "{model_id}",
+        "field_map": {
+          "question": "question_vector"
+        }
+      }
+    }
+  ]
+}
+```
+
+6. Create an index that uses the pipeline to convert the *question* field into embeddings using the pipeline
+
+The *question_vector* field in the index will be generated via. the pipeline we created in the previous step. The pipeline will use the BERT model to conver the *question* feild into embeddings ie. vector representations of the question text
+
+PUT /nlp_pqa
+{
+  "settings": {
+      "index.knn": true,
+      "index.knn.space_type": "cosinesimil",
+      "default_pipeline": "nlp-pipeline",
+      "analysis": {
+        "analyzer": {
+          "default": {
+            "type": "standard",
+            "stopwords": "_english_"
+          }
+        }
+      }
+  },
+  "mappings": {
+      "properties": {
+          "question_vector": {
+              "type": "knn_vector",
+              "dimension": 384,
+              "method": {
+                  "name": "hnsw",
+                  "space_type": "l2",
+                  "engine": "faiss"
+              },
+              "store": true
+          },
+          "question": {
+              "type": "text",
+              "store": true
+          },
+          "answer": {
+              "type": "text",
+              "store": true
+          }
+      }
+  }
+}
+
+7. Load sample data
 
 The sample data for this example is the opensource Amazon product question answer data set. Copy and past the content of the [load_sample_data.json](https://github.com/ev2900/OpenSearch_Neural_Search/blob/main/load_sample_data.json) to the dev tools console of the OpenSearch dashboard. Run the API call. 
 
 This will create an index *nlp_pqa* with a field *question*. We will convert the text in the question field into vector representations - using the BERT model we loaded - in the next steps 
 
 <img width="1000" alt="cat_indicies_1" src="https://github.com/ev2900/OpenSearch_Neural_Search/blob/main/bulk_load.png">
-
-6. 
-
-7. 
