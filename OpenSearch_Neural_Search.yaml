@@ -1,0 +1,55 @@
+Description: This template will deploy OpenSearch domain 
+
+Resources:
+
+  # -----------------
+  # OpenSearch
+  # -----------------
+  OpenSearchDomain:
+    Type: AWS::OpenSearchService::Domain
+    Properties:
+      DomainName: neural-search-domain
+      EngineVersion: 'OpenSearch_2.7'
+      # Development configuration
+      ClusterConfig:
+        DedicatedMasterEnabled: false
+        InstanceCount: '1'
+        ZoneAwarenessEnabled: false
+        InstanceType: 'r6g.large.search'
+      EBSOptions:
+        EBSEnabled: true
+        VolumeSize: '100'
+        VolumeType: 'gp3'
+      # Node to node encrpytion must be enabled to use the advanced security options
+      NodeToNodeEncryptionOptions:
+        Enabled: true
+      # Encryption at rest must be ebabled to use the advanced security options
+      EncryptionAtRestOptions:
+        Enabled: true
+      # HTTPS must be required to use the advanced security options
+      DomainEndpointOptions:
+        EnforceHTTPS: true
+      # Create a master user with a pre-defined username and password
+      AdvancedSecurityOptions:
+        Enabled: true
+        InternalUserDatabaseEnabled: true
+        MasterUserOptions:
+          MasterUserName: 'OSMasterUser'
+          MasterUserPassword: 'AwS#OpenSearch1'
+      # Set an access policy open to any AWS resource
+      AccessPolicies:
+        Version: 2012-10-17
+        Statement:
+          Effect: 'Allow'
+          Principal:
+            AWS: '*'
+          Action: 'es:*'
+          Resource: '*'
+
+Outputs:
+  UserName:
+    Description: 'OpenSearch Dashboard Login UserName'
+    Value: 'OSMasterUser'
+  Password:
+    Description: 'OpenSearch Dashboard Login Password'
+    Value: 'AwS#OpenSearch1'
