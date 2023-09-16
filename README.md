@@ -172,7 +172,7 @@ Copy, paste the following into the Query 1 box
     "neural": {
       "question_vector": {
         "query_text": "does this work with xbox?",
-        "model_id": "J5zPnooBXKl1aQtm2DqI",
+        "model_id": "{model_id}",
         "k": 30
       }
     }
