@@ -1,5 +1,7 @@
 # OpenSearch Neural Search
 
+<img width="85" alt="map-user" src="https://img.shields.io/badge/views-0000-green"> <img width="125" alt="map-user" src="https://img.shields.io/badge/unique visits-0000-green">
+
 The OpenSearch [Neural Search plugin](https://opensearch.org/docs/latest/search-plugins/neural-search/) brings machine learning models to OpenSearch and allows for the transformation of text into vectors during data ingestion. This simplifies vector search use cases. 
 
 Having a machine learning model run directly on OpenSearch eliminates the need to pre-process text into vectors before indexing the data on OpenSearch. Using the Neural Search plugin, you can convert text into vector as you index data on OpenSearch.
