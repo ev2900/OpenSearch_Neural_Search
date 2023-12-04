@@ -1,8 +1,8 @@
 # OpenSearch Neural Search
 
-<img width="85" alt="map-user" src="https://img.shields.io/badge/views-0000-green"> <img width="125" alt="map-user" src="https://img.shields.io/badge/unique visits-0000-green">
+<img width="85" alt="map-user" src="https://img.shields.io/badge/views-366-green"> <img width="125" alt="map-user" src="https://img.shields.io/badge/unique visits-0000-green">
 
-The OpenSearch [Neural Search plugin](https://opensearch.org/docs/latest/search-plugins/neural-search/) brings machine learning models to OpenSearch and allows for the transformation of text into vectors during data ingestion. This simplifies vector search use cases. 
+The OpenSearch [Neural Search plugin](https://opensearch.org/docs/latest/search-plugins/neural-search/) brings machine learning models to OpenSearch and allows for the transformation of text into vectors during data ingestion. This simplifies vector search use cases.
 
 Having a machine learning model run directly on OpenSearch eliminates the need to pre-process text into vectors before indexing the data on OpenSearch. Using the Neural Search plugin, you can convert text into vector as you index data on OpenSearch.
 
@@ -17,7 +17,7 @@ If you do not already have an OpenSearch domain to run the example on you can cl
 [![Launch CloudFormation Stack](https://sharkech-public.s3.amazonaws.com/misc-public/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=neural-search&templateURL=https://sharkech-public.s3.amazonaws.com/misc-public/OpenSearch_Neural_Search.yaml)
 
 The login information for the OpenSearch dashboard is provided in the CloudFormation outputs
-   
+
 2. By default machine learning (ML) tasks and models only run on specific ML nodes. Running the API command below allows ML tasks and models to run on data nodes
 
 ```
@@ -44,14 +44,14 @@ Note down the task id from the API response. This will be used in subsequent ste
 
 4. Get the model id
 
-Using the task id from the previous step, retrieve the model id of the BERT model that was uploaded in the previous step 
+Using the task id from the previous step, retrieve the model id of the BERT model that was uploaded in the previous step
 
 ```
 GET /_plugins/_ml/tasks/{task_id}
 ```
 Note down the model id from the API response. This will be used in subsequent steps
 
-5. Load the model to memory for inference 
+5. Load the model to memory for inference
 
 ```
 POST /_plugins/_ml/models/{model_id}/_load
@@ -133,9 +133,9 @@ PUT /nlp_pqa
 
 8. Load sample data
 
-The sample data for this example is the opensource Amazon product question answer data set. Copy and paste the content of the [load_sample_data.json](https://github.com/ev2900/OpenSearch_Neural_Search/blob/main/load_sample_data.json) to the dev tools console of the OpenSearch dashboard. Run the API call. 
+The sample data for this example is the opensource Amazon product question answer data set. Copy and paste the content of the [load_sample_data.json](https://github.com/ev2900/OpenSearch_Neural_Search/blob/main/load_sample_data.json) to the dev tools console of the OpenSearch dashboard. Run the API call.
 
-This will load the index *nlp_pqa* with a field *question* and the *question_vector* field will automatically be created via. the pipeline we created in previous steps. 
+This will load the index *nlp_pqa* with a field *question* and the *question_vector* field will automatically be created via. the pipeline we created in previous steps.
 
 <img width="1000" alt="bulk_load" src="https://github.com/ev2900/OpenSearch_Neural_Search/blob/main/README/bulk_load.png">
 
