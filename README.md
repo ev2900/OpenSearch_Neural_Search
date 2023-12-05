@@ -1,6 +1,6 @@
 # OpenSearch Neural Search
 
-<img width="275" alt="map-user" src="https://img.shields.io/badge/cloudformation template deployments-12-blue"> <img width="85" alt="map-user" src="https://img.shields.io/badge/views-380-green"> <img width="125" alt="map-user" src="https://img.shields.io/badge/unique visits-086-green">
+<img width="275" alt="map-user" src="https://img.shields.io/badge/cloudformation template deployments-12-blue"> <img width="85" alt="map-user" src="https://img.shields.io/badge/views-378-green"> <img width="125" alt="map-user" src="https://img.shields.io/badge/unique visits-086-green">
 
 The OpenSearch [Neural Search plugin](https://opensearch.org/docs/latest/search-plugins/neural-search/) brings machine learning models to OpenSearch and allows for the transformation of text into vectors during data ingestion. This simplifies vector search use cases.
 
